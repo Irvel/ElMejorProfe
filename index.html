@@ -1,42 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="es-mx">
 	<head>
 		<title>El mejor profe</title>
-		<link href="style.css" rel="stylesheet" type="text/css">
+		<link href="style.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta charset="UTF-8">
 	</head>
 	<body>
-
-		<div id="container">
-
-			<div id="header">
-				<header>
+		<div id="header">
+			<header>
 				<h1>
 					El mejor profe
 				</h1>
-					<p>Esta página web simple te ayudará a elegir un profesor de matemáticas utilizando las calificaciones del sito "misprofesores.com".</p>
-				</header>
-			</div>
-
-			<div id="contenido">
+					<p>Esta simple página web te ayudará a elegir el mejor profesor para tí utilizando las calificaciones de "<a href="http://misprofesores.com">http://misprofesores.com</a>".</p>
+			</header>
+		</div>
+		<div id="container">
+			<div id="opciones">
 				<form>
-					<br>
-					Elige la cualidad que más te importa que tenga un profesor:<br>
-					<input type="radio" name="primera-cualidad"> Facilidad 
-					<input type="radio" name="primera-cualidad"> Ayuda 
-					<input type="radio" name="primera-cualidad"> Claridad 
-					<br><br><br>
-					Elige la segunda cualidad que más te importa que tenga un profesor:<br>
-					<input type="radio" name="segunda-cualidad"> Facilidad 
-					<input type="radio" name="segunda-cualidad"> Ayuda 
-					<input type="radio" name="segunda-cualidad"> Claridad 
-					<br><br><br>
-					Elige la tercera cualidad que más te importa que tenga un profesor:<br>
-					<input type="radio" name="tercera-cualidad"> Facilidad 
-					<input type="radio" name="tercera-cualidad"> Ayuda 
-					<input type="radio" name="tercera-cualidad"> Claridad 
-					<br><br><br>
+					<div class="bloque">
+						<p>Elige lo que más te importa en un profesor:</p>
+						<input type="radio" class="primera-cualidad" name="primera-cualidad" id="primera_opcion1" checked> <label for="primera_opcion1">Facilidad</label>
+						<input type="radio" class="primera-cualidad" name="primera-cualidad" id="primera_opcion2"> <label for="primera_opcion2">Ayuda</label>
+						<input type="radio" class="primera-cualidad" name="primera-cualidad" id="primera_opcion3"> <label for="primera_opcion3">Claridad</label>
+					</div>
+
+					<div class="bloque">
+						<p>Elige lo segundo que más te importa en un profesor:</p>
+						<input type="radio" class="segunda-cualidad" name="segunda-cualidad" id="segunda_opcion1" checked> <label for="segunda_opcion1">Facilidad</label>
+						<input type="radio" class="segunda-cualidad" name="segunda-cualidad" id="segunda_opcion2"> <label for="segunda_opcion2">Ayuda</label>
+						<input type="radio" class="segunda-cualidad" name="segunda-cualidad" id="segunda_opcion3"> <label for="segunda_opcion3">Claridad</label>
+					</div>
+
+					<div class="bloque">
+						<p>Elige lo que menos te importa en un profesor:</p>
+						<input type="radio" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion1" checked> <label for="tercera_opcion1">Facilidad</label>
+						<input type="radio" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion2"> <label for="tercera_opcion2">Ayuda</label>
+						<input type="radio" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion3"> <label for="tercera_opcion3">Claridad</label>
+					</div>
+
 					<input type="submit" value="Elige el mejor profesor para mí">
 				</form>
+			</div>
+			<div id="resultado">
+				<h2>Resultado</h2>
 			</div>
 		</div>
 	</body>
