@@ -6,6 +6,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta charset="UTF-8">
+		<script type="text/javascript" src="script.js" async></script>
 	</head>
 	<body>
 		<div id="header">
@@ -13,39 +14,50 @@
 				<h1>
 					El mejor profe
 				</h1>
-					<p>Esta simple página web te ayudará a elegir el mejor profesor para tí utilizando las calificaciones de "<a href="http://misprofesores.com">http://misprofesores.com</a>".</p>
+					<p id="prueba">Esta simple página web te ayudará a elegir el mejor profesor para tí utilizando las calificaciones de "<a href="http://misprofesores.com">http://misprofesores.com</a>".</p>
 			</header>
 		</div>
 		<div id="container">
 			<div id="opciones">
 				<form>
 					<div class="bloque">
-						<p>Elige lo que más te importa en un profesor:</p>
-						<input type="radio" class="primera-cualidad" name="primera-cualidad" id="primera_opcion1" checked> <label for="primera_opcion1">Facilidad</label>
-						<input type="radio" class="primera-cualidad" name="primera-cualidad" id="primera_opcion2"> <label for="primera_opcion2">Ayuda</label>
-						<input type="radio" class="primera-cualidad" name="primera-cualidad" id="primera_opcion3"> <label for="primera_opcion3">Claridad</label>
+						<p>Elige lo <em class="primera-cualidad">primero</em> que más te importa en un profesor:</p>
+						<input type="checkbox" onclick="revisarUno1()" class="primera-cualidad" name="primera-cualidad" id="primera_opcion1" value="3" checked> <label for="primera_opcion1">Facilidad</label>
+						<input type="checkbox" onclick="revisarDos1()" class="primera-cualidad" name="primera-cualidad" id="primera_opcion2" value="2"> <label for="primera_opcion2">Ayuda</label>
+						<input type="checkbox" onclick="revisarTres1()" class="primera-cualidad" name="primera-cualidad" id="primera_opcion3" value="1"> <label for="primera_opcion3">Claridad</label>
 					</div>
 
 					<div class="bloque">
-						<p>Elige lo segundo que más te importa en un profesor:</p>
-						<input type="radio" class="segunda-cualidad" name="segunda-cualidad" id="segunda_opcion1" checked> <label for="segunda_opcion1">Facilidad</label>
-						<input type="radio" class="segunda-cualidad" name="segunda-cualidad" id="segunda_opcion2"> <label for="segunda_opcion2">Ayuda</label>
-						<input type="radio" class="segunda-cualidad" name="segunda-cualidad" id="segunda_opcion3"> <label for="segunda_opcion3">Claridad</label>
+						<p>Elige lo <em class="segunda-cualidad">segundo</em> que más te importa en un profesor:</p>
+						<input type="checkbox" onclick="revisarUno2()" class="segunda-cualidad" name="segunda-cualidad" id="segunda_opcion1" value="3"> <label for="segunda_opcion1">Facilidad</label>
+						<input type="checkbox" onclick="revisarDos2()" class="segunda-cualidad" name="segunda-cualidad" id="segunda_opcion2" value="2" checked> <label for="segunda_opcion2">Ayuda</label>
+						<input type="checkbox" onclick="revisarTres2()" class="segunda-cualidad" name="segunda-cualidad" id="segunda_opcion3" value="1"> <label for="segunda_opcion3">Claridad</label>
 					</div>
 
 					<div class="bloque">
-						<p>Elige lo que menos te importa en un profesor:</p>
-						<input type="radio" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion1" checked> <label for="tercera_opcion1">Facilidad</label>
-						<input type="radio" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion2"> <label for="tercera_opcion2">Ayuda</label>
-						<input type="radio" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion3"> <label for="tercera_opcion3">Claridad</label>
+						<p>Elige lo que <em class="tercera-cualidad">menos</em> te importa en un profesor:</p>
+						<input type="checkbox" onclick="revisarUno3()" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion1" value="3"> <label for="tercera_opcion1">Facilidad</label>
+						<input type="checkbox" onclick="revisarDos3()" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion2" value="2"> <label for="tercera_opcion2">Ayuda</label>
+						<input type="checkbox" onclick="revisarTres3()" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion3" value="1" checked> <label for="tercera_opcion3">Claridad</label>
 					</div>
-
-					<input type="submit" value="Elige el mejor profesor para mí">
+					<button type="button" onclick="mejorProfe()">Click me</button>
+					<input type="button" value="Elige el mejor profesor para mí">
 				</form>
 			</div>
 			<div id="resultado">
-				<h2>Resultado</h2>
+				<p id="result"></p>
 			</div>
+		</div>
+		<div id="footer">
+			<footer>
+				<p>¿Tienes alguna queja/sugerencia/petición/pull request?</p>
+				<p>¡Cualquiera es bienvenida!</p>
+				<iframe src="http://ghbtns.com/github-btn.html?user=irvel&repo=ElMejorProfe&type=watch" allowtransparency="true" frameborder="0"scrolling="0" width="55" height="20"></iframe>
+				<iframe src="http://ghbtns.com/github-btn.html?user=irvel&repo=ElMejorProfe&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="56" height="20"></iframe>
+  				<iframe src="http://ghbtns.com/github-btn.html?user=irvel&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="irvel.github.io/ElMejorProfe" data-text="Elije el mejor profe de mate: irvel.github.io/ElMejorProfe" data-via="IrvelN" data-lang="es">Twittear</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</footer>
 		</div>
 	</body>
 </html>
