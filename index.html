@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="es-mx">
 	<head>
-		<title>El mejor profe</title>
+		<title>El Mejor Profe</title>
 		<link href="style.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:200,400,300' rel='stylesheet' type='text/css'>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta charset="UTF-8">
 		<script type="text/javascript" src="script.js" async></script>
+		<script>
+  			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  			ga('create', 'UA-57705003-1', 'auto');
+  			ga('send', 'pageview');
+		</script>
+		<link href="paloma.png" rel="shortcut icon">
 	</head>
 	<body>
 		<div id="header">
@@ -14,7 +24,7 @@
 				<h1>
 					El mejor profe
 				</h1>
-					<p id="prueba">Esta simple página web te ayudará a elegir el mejor profesor para tí utilizando las calificaciones de "<a href="http://misprofesores.com">http://misprofesores.com</a>".</p>
+					<p id="prueba">Esta simple página web te ayudará a elegir el mejor profesor de Matemáticas II para el semestre enero-mayo utilizando las calificaciones de "<a href="http://misprofesores.com">http://misprofesores.com</a>". ¡Símplemente elige en orden de importancia lo que más te gustaría en un profesor y dale click al botón!.</p>
 			</header>
 		</div>
 		<div id="container">
@@ -40,8 +50,7 @@
 						<input type="checkbox" onclick="revisarDos3()" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion2" value="2"> <label for="tercera_opcion2">Ayuda</label>
 						<input type="checkbox" onclick="revisarTres3()" class="tercera-cualidad" name="tercera-cualidad" id="tercera_opcion3" value="1" checked> <label for="tercera_opcion3">Claridad</label>
 					</div>
-					<button type="button" onclick="mejorProfe()">Click me</button>
-					<input type="button" value="Elige el mejor profesor para mí">
+					<button class="action-button shadow animate blue" id="bprincipal" type="button" onclick="mejorProfe()">Elige el mejor profesor para mí</button>
 				</form>
 			</div>
 			<div id="resultado">
@@ -49,6 +58,10 @@
 				<p id="rfacilidad"></p>
 				<p id="rayuda"></p>
 				<p id="rclaridad"></p>
+				<p id="rnumcalificaciones"></p>
+				<div id="nolopuedocentrar">
+					<button id="bsegundo" class="action-button shadow animate white" type="button" onclick="siguienteMejor()"></button>
+				</div>
 			</div>
 		</div>
 		<div id="footer">
@@ -58,7 +71,7 @@
 				<iframe src="http://ghbtns.com/github-btn.html?user=irvel&repo=ElMejorProfe&type=watch" allowtransparency="true" frameborder="0"scrolling="0" width="55" height="20"></iframe>
 				<iframe src="http://ghbtns.com/github-btn.html?user=irvel&repo=ElMejorProfe&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="56" height="20"></iframe>
   				<iframe src="http://ghbtns.com/github-btn.html?user=irvel&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="irvel.github.io/ElMejorProfe" data-text="Elije el mejor profe de mate: irvel.github.io/ElMejorProfe" data-via="IrvelN" data-lang="es">Twittear</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="irvel.github.io/ElMejorProfe" data-text="Elije el mejor profesor de Mate II: irvel.github.io/ElMejorProfe" data-via="IrvelN" data-lang="es" data-hashtags="HorarioTec">Twittear</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 			</footer>
 		</div>

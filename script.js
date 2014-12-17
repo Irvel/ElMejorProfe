@@ -1,4 +1,14 @@
+/*
+	El mejor profe
+	==============
+	Irvel Nduva
+	irvel.com
+	Diciembre 2014
+*/
+
+
 var indice = 0;
+
 var profesores = {
 	nombres: [
 	"Juan Antonio Alanís Rodríguez", 
@@ -32,41 +42,41 @@ var profesores = {
 		console.log("Sin ordenar: ");
 		for(var contador = 0; contador < this.nombres.length; contador++){
 			this.ranking[contador] = (this.facilidad[contador]*this.prioridad1) + (this.ayuda[contador]*this.prioridad2) + (this.claridad[contador]*this.prioridad3);
-			console.log(this.ranking[contador]);
+			console.log(this.ranking[contador] + " " + this.nombres[contador]);
 		}
     },
     ordenarRanking : function() {
-    	//Lo se, es bubble sort :/ pero son sólo 17! YOLO
-    	var intercambiados;
-    	do {
-        	intercambiados = false;
-        	for (var i = 0; i < this.ranking.length-1; i++) {
-            	if (this.ranking[i] > this.ranking[i+1]) {
-                	var temp1 = this.ranking[i];
-                	var temp2 = this.nombres[i];
-                	var temp3 = this.numcalificaciones[i];
-                	var temp4 = this.facilidad[i];
-                	var temp5 = this.ayuda[i];
-                	var temp6 = this.claridad[i];
-                	this.ranking[i] = this.ranking[i+1];
-                	this.nombres[i] = this.nombres[i+1];
-                	this.numcalificaciones[i] = this.numcalificaciones[i+1];
-                	this.facilidad[i] = this.facilidad[i+1];
-                	this.ayuda[i] = this.ayuda[i+1];
-                	this.claridad[i] = this.claridad[i+1];
-                	this.ranking[i+1] = temp1;
-                	this.nombres[i+1] = temp2;
-                	this.numcalificaciones[i+1] = temp3;
-                	this.facilidad[i+1] = temp4;
-                	this.ayuda[i+1] = temp5;
-                	this.claridad[i+1] = temp6;
-                	this.intercambiados = true;
+    	//Lo se, es bubble sort, pero son sólo 17! YOLO
+    	var comparaciones = 0;
+        var endIndex = 0;
+        var tamano = this.ranking.length - 1;
+    	for (var i = 0; i < tamano; i++) {
+        	for (var j = 0, endIndex = tamano - i; j < endIndex; j++) {
+            	if (this.ranking[j] < this.ranking[j + 1]) {
+                	var temp1 = this.ranking[j];
+                	var temp2 = this.nombres[j];
+                	var temp3 = this.numcalificaciones[j];
+                	var temp4 = this.facilidad[j];
+                	var temp5 = this.ayuda[j];
+                	var temp6 = this.claridad[j];
+                	this.ranking[j] = this.ranking[j+1];
+                	this.nombres[j] = this.nombres[j+1];
+                	this.numcalificaciones[j] = this.numcalificaciones[j+1];
+                	this.facilidad[j] = this.facilidad[j+1];
+                	this.ayuda[j] = this.ayuda[j+1];
+                	this.claridad[j] = this.claridad[j+1];
+                	this.ranking[j+1] = temp1;
+                	this.nombres[j+1] = temp2;
+                	this.numcalificaciones[j+1] = temp3;
+                	this.facilidad[j+1] = temp4;
+                	this.ayuda[j+1] = temp5;
+                	this.claridad[j+1] = temp6;
             	}
         	}
-    	} while (intercambiados);
+    	}
     	console.log("ordenados: ");    
 		for(var contador = 0; contador < this.nombres.length; contador++){
-			console.log(this.ranking[contador]);
+			console.log(this.ranking[contador] + " " + this.nombres[contador]);
 		}
     }
 };
@@ -166,10 +176,44 @@ function mejorProfe(){
 	profesores.ordenarRanking();
 	//var element = document.getElementById("result").value;
 	//element.innerHTML = "New Header";
-	document.getElementById("rnombre").innerHTML = profesores.nombres[0];
-	document.getElementById("rfacilidad").innerHTML = profesores.facilidad[0];
-	document.getElementById("rayuda").innerHTML = profesores.ayuda[0];
-	document.getElementById("rclaridad").innerHTML = profesores.claridad[0];
+	document.querySelector("#resultado").style.visibility = "visible";
+	document.querySelector("#bprincipal").style.visibility = "hidden";
+	document.getElementById("primera_opcion1").disabled=true;
+	document.getElementById("primera_opcion2").disabled=true;
+	document.getElementById("primera_opcion3").disabled=true;
+	document.getElementById("segunda_opcion1").disabled=true;
+	document.getElementById("segunda_opcion2").disabled=true;
+	document.getElementById("segunda_opcion3").disabled=true;
+	document.getElementById("tercera_opcion1").disabled=true;
+	document.getElementById("tercera_opcion2").disabled=true;
+	document.getElementById("tercera_opcion3").disabled=true;
+	indice = -1;
+	siguienteMejor();
+	//Borrar valores previos para siguiente despliegue
+	profesores.prioridad1 = 1;
+	profesores.prioridad2 = 1;
+	profesores.prioridad3 = 1;
+};
+
+function siguienteMejor(){
+	indice++;
+	document.getElementById("rnombre").innerHTML = profesores.nombres[indice];
+	document.getElementById("rfacilidad").innerHTML = "Facilidad: " + "<strong>" + profesores.facilidad[indice] + "</strong>";
+	document.getElementById("rayuda").innerHTML = "Ayuda: " + "<strong>" + profesores.ayuda[indice] + "</strong>";
+	document.getElementById("rclaridad").innerHTML = "Claridad: " + "<strong>" + profesores.claridad[indice] + "</strong>";
+	if(profesores.numcalificaciones[indice] < 30){
+		document.getElementById("rnumcalificaciones").innerHTML = "# de Calificaciones: " + "<strong id=\"rojo\">" + profesores.numcalificaciones[indice] + "</strong>";
+	}
+	else if(profesores.numcalificaciones[indice] > 30 && profesores.numcalificaciones[indice] < 40){
+		document.getElementById("rnumcalificaciones").innerHTML = "# de Calificaciones: " + "<strong>" + profesores.numcalificaciones[indice] + "</strong>";
+	}
+	else{
+		document.getElementById("rnumcalificaciones").innerHTML = "# de Calificaciones: " + "<strong id=\"verde\">" + profesores.numcalificaciones[indice] + "</strong>";
+	}
+	document.getElementById("bsegundo").innerHTML = "Siguiente mejor";
+	if(indice >= profesores.nombres.length-1){
+		document.querySelector("#bsegundo").style.visibility = "hidden";
+	}
 };
 
 
